@@ -4,7 +4,7 @@ package svg
 // package main
 //
 // 	import (
-// 		"github.com/ajstarks/svgo/float"
+// 		"zappem.net/pub/graphics/svgo/float"
 // 		"os"
 // 	)
 //

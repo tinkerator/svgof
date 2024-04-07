@@ -10,7 +10,7 @@ import (
 	"math"
 	"os"
 
-	"github.com/ajstarks/svgo"
+	"zappem.net/pub/graphics/svgo"
 )
 
 // rawdata defines data as float64 x,y coordinates

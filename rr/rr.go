@@ -5,7 +5,7 @@ import (
 	"encoding/xml"
 	"flag"
 	"fmt"
-	"github.com/ajstarks/svgo"
+	"zappem.net/pub/graphics/svgo"
 	"io"
 	"math"
 	"os"

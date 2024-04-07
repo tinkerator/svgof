@@ -1,9 +1,20 @@
-# SVGo: A Go library for SVG generation #
+# SVGo: A Go library for SVG generation
+
+## First of all.
+
+This package is a snapshot fork from the **official** upstream version:
+
+- [`"github.com/ajstarks/svgo"`](https://github.com/ajstarks/svgo)
+
+The snapshot was taken 2024-04-06. This package retains all of the
+License and Copyright of its original creators.
+
+## Overview
 
 The library generates SVG as defined by the Scalable Vector Graphics 1.1 Specification (<http://www.w3.org/TR/SVG11/>). 
 Output goes to the specified io.Writer.
 
-## Supported SVG elements and functions ##
+## Supported SVG elements and functions
 
 ### Shapes, lines, text
  
@@ -17,11 +28,12 @@ Output goes to the specified io.Writer.
  
  image, linearGradient, radialGradient, 
  
-### Transforms ###
+### Transforms
  
  translate, rotate, scale, skewX, skewY
 
- ### Animation ###
+### Animation
+
  animate, animateMotion, animateTranslate, animateRotate, animateScale, animateSkewX, animateSkewY
  
 ### Filter Effects 
@@ -31,24 +43,23 @@ Output goes to the specified io.Writer.
  feSpecularLighting, feSpotLight,feTile, feTurbulence
 
 
-### Metadata elements ###
+### Metadata elements
 
  desc, defs, g (style, transform, id), marker, mask, pattern, title, (a)ddress, link, script, use
 
-## Building and Usage ##
+## Building and Usage
 
 See svgdef.[svg|png|pdf] for a graphical view of the function calls
 
-
 Usage: (assuming GOPATH is set)
 
-	go get github.com/ajstarks/svgo
-	go install github.com/ajstarks/svgo/...
+	go get zappem.net/pub/graphics/svgo
+	go install zappem.net/pub/graphics/svgo/...
 	
 	
 You can use godoc to browse the documentation from the command line:
 
-	$ go doc github.com/ajstarks/svgo
+	$ go doc zappem.net/pub/graphics/svgo
 	
 
 a minimal program, to generate SVG to standard output.
@@ -56,7 +67,7 @@ a minimal program, to generate SVG to standard output.
 	package main
 	
 	import (
-		"github.com/ajstarks/svgo"
+		"zappem.net/pub/graphics/svgo"
 		"os"
 	)
 	
@@ -76,7 +87,7 @@ Drawing in a web server: (http://localhost:2003/circle)
 	
 	import (
 		"log"
-		"github.com/ajstarks/svgo"
+		"zappem.net/pub/graphics/svgo"
 		"net/http"
 	)
 	
@@ -96,9 +107,11 @@ Drawing in a web server: (http://localhost:2003/circle)
 	  s.End()
 	}
 
-You may view the SVG output with a browser that supports SVG (tested on Chrome, Opera, Firefox and Safari), or any other SVG user-agent such as Batik Squiggle.
+You may view the SVG output with a browser that supports SVG (tested
+on Chrome, Opera, Firefox and Safari), or any other SVG user-agent
+such as Batik Squiggle.
 
-### Graphics Sketching with SVGo and svgplay ###
+### Graphics Sketching with SVGo and svgplay
 
 Combined with the svgplay command, SVGo can be used to "sketch" with code in a browser.  
 
@@ -112,8 +125,12 @@ svgplay only listens on localhost, and uses port 1999 (guess which year SVG was 
 
 	http://localhost:1999/
 
-Enter your code in the textarea, and when you are ready to run press Shift--Enter.  The code will be compiled, with the results
-on the right.  To update, change the code and repeat. Note that compilation errors are shown in red under the code. In order for svgplay/SVGo to work, make sure that the io.Writer specified with the New function is os.Stdout.
+Enter your code in the textarea, and when you are ready to run press
+Shift--Enter.  The code will be compiled, with the results on the
+right.  To update, change the code and repeat. Note that compilation
+errors are shown in red under the code. In order for svgplay/SVGo to
+work, make sure that the io.Writer specified with the New function is
+os.Stdout.
 
 
 If you want to sketch with an existing file, enter its URL:
@@ -132,11 +149,11 @@ If you want to sketch with an existing file, enter its URL:
 * SVGo Workshop <https://speakerdeck.com/u/ajstarks/p/svgo-workshop>
 
 
-### Tutorial Video ###
+### Tutorial Video
 
 A video describing how to use the package can be seen on YouTube at <http://www.youtube.com/watch?v=ze6O2Dj5gQ4>
 
-## Package contents ##
+## Package contents
 
 * svg.go:		Library
 * newsvg:		Coding template command
@@ -181,8 +198,7 @@ A video describing how to use the package can be seen on YouTube at <http://www.
 * webfonts:	"Hello, World" with Google Web Fonts
 * websvg:	Generate SVG as a web server
 
-
-## Functions and types ##
+## Functions and types
 
 Many functions use x, y to specify an object's location, and w, h to specify the object's width and height.
 Where applicable, a final optional argument specifies the style to be applied to the object. 
@@ -218,7 +234,7 @@ The Filterspec type:
 is used to specify inputs and results for filter effects
 
 
-### Structure, Scripting, Metadata, Transformation and Links ###
+### Structure, Scripting, Metadata, Transformation and Links
 
 	New(w io.Writer) *SVG
   Constructor, Specify the output destination.
@@ -373,7 +389,7 @@ is used to specify inputs and results for filter effects
   place the object referenced at link at the location x, y.
   <http://www.w3.org/TR/SVG11/struct.html#UseElement>
 
-### Shapes ###
+### Shapes
 
 	Circle(x int, y int, r int, s ...string)
   draw a circle, centered at x,y with radius r.
@@ -414,7 +430,7 @@ is used to specify inputs and results for filter effects
   
   ![Square](http://farm5.static.flickr.com/4110/5187953659_54dcce242e_m.jpg)
 
-### Paths ###
+### Paths
 
 	Path(p string, s ...style)
  draw the arbitrary path as specified in p, according to the style specified in s. <http://www.w3.org/TR/SVG11/paths.html>
@@ -459,7 +475,7 @@ is used to specify inputs and results for filter effects
    
    ![Qbez](http://farm6.static.flickr.com/5176/5569879349_5f726aab5e.jpg)
 
-### Lines ###
+### Lines
 
 	Line(x1 int, y1 int, x2 int, y2 int, s ...string)
   draw a line segment between x1,y1 and x2,y2.
@@ -474,7 +490,7 @@ is used to specify inputs and results for filter effects
  
  ![Polyline](http://farm2.static.flickr.com/1266/5188556384_a863273a69.jpg)
 
-### Image and Text ###
+### Image and Text
 
 	Image(x int, y int, w int, h int, link string, s ...string)
   place at x,y (upper left hand corner), the image with width w, and height h, referenced at link.
@@ -505,7 +521,7 @@ End a text span
   <http://www.w3.org/TR/SVG11/text.html#TextPathElement>
   ![Image](http://farm4.static.flickr.com/3149/5694580737_4b291df768_m.jpg)
   
-### Color ###
+### Color
 
 	RGB(r int, g int, b int) string
   creates a style string for the fill color designated 
@@ -516,7 +532,7 @@ End a text span
   as above, but includes the color's opacity as a value
   between 0.0 (fully transparent) and 1.0 (opaque).
   
-### Gradients ###
+### Gradients
 
 	LinearGradient(id string, x1, y1, x2, y2 uint8, sc []Offcolor)
   constructs a linear color gradient identified by id, 
@@ -535,7 +551,7 @@ End a text span
   
   ![RadialGradient](http://farm2.static.flickr.com/1302/5187954065_7ddba7b819.jpg)
 
-### Animation ###
+### Animation
 
 	Animate(link, attr string, from, to int, duration float64, repeat int, s ...string)
 Animate animates the item referenced by the link, using the specified attribute
@@ -573,7 +589,7 @@ AnimateSkewY animates the skewY transformation (link refers to the object to ani
 <https://www.w3.org/TR/SVG11/animate.html#AnimateTransformElement>
 
   
-### Filter Effects ###
+### Filter Effects
 
 	Filter(id string, s ...string)
  Filter begins a filter set
@@ -617,7 +633,6 @@ Standard reference: <http://www.w3.org/TR/SVG11/filters.html#feCompositeElement>
  	FeConvolveMatrix(fs Filterspec, matrix [9]int, s ...string)
 FeConvolveMatrix specifies a feConvolveMatrix filter primitive
 Standard reference: <http://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElement>
-
 
 	 FeDiffuseLighting(fs Filterspec, scale, constant float64, s ...string) 
 FeDiffuseLighting specifies a diffuse lighting filter primitive, 
@@ -703,7 +718,7 @@ Standard reference: <http://www.w3.org/TR/SVG11/filters.html#feTileElement>
 FeTurbulence specifies a turbulence filter primitive
 Standard reference: <http://www.w3.org/TR/SVG11/filters.html#feTurbulenceElement>
 
-### Filter convenience functions (modeled on CSS filter effects) ###
+### Filter convenience functions (modeled on CSS filter effects)
 
 	Blur(p float64)
 Blur function by standard deviation
@@ -727,13 +742,17 @@ Percent saturation, 0 is grayscale
 Apply sepia tone
 
 
-### Utility ###
+### Utility
 
 	Grid(x int, y int, w int, h int, n int, s ...string)
   draws a grid of straight lines starting at x,y, with a width w, and height h, and a size of n.
   
   ![Grid](http://farm5.static.flickr.com/4133/5190957924_7a31d0db34.jpg)
   
-### Credits ###
+### Credits
 
-Thanks to Jonathan Wright for the io.Writer update.
+The official sources, from which this present package is forked is
+[`"github.com/ajstarks/svgo"`](https://github.com/ajstarks/svgo),
+Anthony Starks is the principal author, and Ivan Krasin is also listed
+as a contributor. The forked sources also credit Jonathan Wright for
+the io.Writer update.

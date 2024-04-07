@@ -33,13 +33,13 @@ Metadata elements
 
 Usage: (assuming GOPATH is set)
 
-	go get github.com/ajstarks/svgo
-	go install github.com/ajstarks/svgo/...
+	go get zappem.net/pub/graphics/svgo
+	go install zappem.net/pub/graphics/svgo/...
 
 
 You can use godoc to browse the documentation from the command line:
 
-	$ godoc github.com/ajstarks/svgo
+	$ godoc zappem.net/pub/graphics/svgo
 
 
 a minimal program, to generate SVG to standard output.
@@ -47,7 +47,7 @@ a minimal program, to generate SVG to standard output.
 	package main
 
 	import (
-		"github.com/ajstarks/svgo"
+		"zappem.net/pub/graphics/svgo"
 		"os"
 	)
 
@@ -67,7 +67,7 @@ Drawing in a web server: (http://localhost:2003/circle)
 
 	import (
 		"log"
-		"github.com/ajstarks/svgo"
+		"zappem.net/pub/graphics/svgo"
 		"net/http"
 	)
 

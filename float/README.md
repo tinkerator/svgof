@@ -43,12 +43,12 @@ See svgdef.[svg|png|pdf] for a graphical view of the function calls
 
 Usage: (assuming GOPATH is set)
 
-	go get github.com/ajstarks/svgo/float
+	go get zappem.net/pub/graphics/svgo/float
 	
 	
 You can use godoc to browse the documentation from the command line:
 
-	$ go doc github.com/ajstarks/svgo/float
+	$ go doc zappem.net/pub/graphics/svgo/float
 	
 
 a minimal program, to generate SVG to standard output.
@@ -56,7 +56,7 @@ a minimal program, to generate SVG to standard output.
 	package main
 	
 	import (
-		"github.com/ajstarks/svgo/float"
+		"zappem.net/pub/graphics/svgo/float"
 		"os"
 	)
 	
@@ -76,7 +76,7 @@ Drawing in a web server: (http://localhost:2003/circle)
 	
 	import (
 		"log"
-		"github.com/ajstarks/svgo/float"
+		"zappem.net/pub/graphics/svgo/float"
 		"net/http"
 	)
 	

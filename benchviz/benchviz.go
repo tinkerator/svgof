@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"strings"
 
-	svg "github.com/ajstarks/svgo"
+	svg "zappem.net/pub/graphics/svgo"
 )
 
 // geometry defines the layout of the visualization

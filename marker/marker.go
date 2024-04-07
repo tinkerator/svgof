@@ -4,7 +4,7 @@
 package main
 
 import (
-	"github.com/ajstarks/svgo"
+	"zappem.net/pub/graphics/svgo"
 	"os"
 )
 

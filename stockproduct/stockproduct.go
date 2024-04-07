@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ajstarks/svgo"
+	"zappem.net/pub/graphics/svgo"
 )
 
 // Parameters defines options

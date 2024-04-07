@@ -1,3 +1,3 @@
-module github.com/ajstarks/svgo
+module zappem.net/pub/graphics/svgo
 
 go 1.21

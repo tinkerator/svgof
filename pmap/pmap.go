@@ -10,7 +10,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/ajstarks/svgo"
+	"zappem.net/pub/graphics/svgo"
 )
 
 // Pmap defines a porportional map

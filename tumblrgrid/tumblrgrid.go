@@ -12,7 +12,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/ajstarks/svgo"
+	"zappem.net/pub/graphics/svgo"
 )
 
 var (
