@@ -1,4 +1,5 @@
 // svgdef -  SVG Object Definition and Use
+//go:build !appengine
 // +build !appengine
 
 package main
@@ -7,7 +8,7 @@ import (
 	"math"
 	"os"
 
-	"zappem.net/pub/graphics/svgo/float"
+	"zappem.net/pub/graphics/svgof"
 )
 
 const (
@@ -25,13 +26,13 @@ const (
 )
 
 var (
-	canvas   = svg.New(os.Stdout)
+	canvas   = svgof.New(os.Stdout)
 	grayfill = canvas.RGB(220, 220, 220)
-	oc1      = svg.Offcolor{Offset: 0, Color: "white", Opacity: 1.0}
-	oc2      = svg.Offcolor{Offset: 25, Color: "lightblue", Opacity: 1.0}
-	oc3      = svg.Offcolor{Offset: 75, Color: "blue", Opacity: 1.0}
-	oc4      = svg.Offcolor{Offset: 100, Color: objcolor, Opacity: 1.0}
-	ga       = []svg.Offcolor{oc1, oc2, oc3, oc4}
+	oc1      = svgof.Offcolor{Offset: 0, Color: "white", Opacity: 1.0}
+	oc2      = svgof.Offcolor{Offset: 25, Color: "lightblue", Opacity: 1.0}
+	oc3      = svgof.Offcolor{Offset: 75, Color: "blue", Opacity: 1.0}
+	oc4      = svgof.Offcolor{Offset: 100, Color: objcolor, Opacity: 1.0}
+	ga       = []svgof.Offcolor{oc1, oc2, oc3, oc4}
 )
 
 // defcoodstr defines coordinate strings: (x,y)

@@ -1,3 +1,3 @@
-module zappem.net/pub/graphics/svgo
+module zappem.net/pub/graphics/svgof
 
 go 1.21
