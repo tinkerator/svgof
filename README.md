@@ -57,7 +57,7 @@ specified io.Writer, operation occur with Go's float64 type.
 
 ## Building and Usage
 
-See svgdef.[svg|png|pdf] for a graphical view of the function calls
+See [svgdef.svg](svgdef.svg) for a graphical view of the function calls
 
 Usage: (assuming GOPATH is set)
 
@@ -82,6 +82,7 @@ a minimal program, to generate SVG to standard output.
 		width := 500.0
 		height := 500.0
 		canvas := svgof.New(os.Stdout)
+		canvas.Digits = 3
 		canvas.Start(width, height)
 		canvas.Circle(width/2, height/2, 100)
 		canvas.Text(width/2, height/2, "Hello, SVG", "text-anchor:middle;font-size:30px;fill:white")
@@ -119,7 +120,18 @@ You may view the SVG output with a browser that supports SVG (tested
 on Chrome, Opera, Firefox and Safari), or any other SVG user-agent
 such as Batik Squiggle.
 
-### SVGo Papers and presentations  ###
+### Examples:
+
+- `$ go run examples/svgdef.go`
+  - This regenerates the `svgdef.svg` file, which summarizes the features
+    of this `svgof` package.
+- `$ go run examples/drl2svg.go --drl examples/test.drl`
+  - This processes the sample `.drl` file, which is a drill file output
+    of [Kicad](https://www.kicad.org), to produce an SVG that
+    summarizes the way to use a CNC machine to drill holes like this
+    in a PCB.
+
+### SVGo Papers and presentations
 
 * SVGo paper from SVGOpen 2011 <http://www.svgopen.org/2011/papers/34-SVGo_a_Go_Library_for_SVG_generation>
 
@@ -696,3 +708,11 @@ also credit Jonathan Wright for the io.Writer update.
 
 This trimmed down version of the package with minimal dependencies
 retains the same license information.
+
+## Reporting bugs
+
+Reporting bugs in the code in this package should start with: Use the
+[github `svgof` bug
+tracker](https://github.com/tinkerator/svgof/issues). If the bugs are
+also present in the upstream sources, they will likely be mirrored
+there, hopefully with a suggested fix!
