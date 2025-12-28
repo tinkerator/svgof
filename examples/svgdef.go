@@ -405,23 +405,23 @@ func defrgb(id string, w, h float64, r, g, b int, opacity float64, legend string
 func defobjects(w, h float64) {
 	var (
 		metatext = []string{
-			"New(w io Writer)",
-			"Start(w, h float64, options ...string)/End()",
-			"Startview(w, h, minx, miny, vw, vh float64)",
-			"Group(s ...string)/Gend()",
-			"Gstyle(s string)/Gend()",
-			"Gtransform(s string)/Gend()",
-			"Gid(id string)/Gend()",
-			"ClipPath(s ...string)/ClipEnd()",
-			"Def()/DefEnd()",
-			"Marker()/MarkerEnd()",
-			"Pattern()/PatternEnd()",
-			"Desc(s string)",
-			"Title(s string)",
-			"Script(type, data ...string)",
-			"Mask(id string, x,y,w,h float64, style ...string)/MaskEnd()",
-			"Link(href string, title string)/LinkEnd()",
-			"Use(x float64, y float64, link string, style ...string)",
+			"New(w io Writer) -> *SVG",
+			"(*SVG).Start(w, h float64, options ...string)/.End()",
+			"(*SVG).Startview(w, h, minx, miny, vw, vh float64)/.End()",
+			"(*SVG).Group(s ...string)/.Gend()",
+			"(*SVG).Gstyle(s string)/.Gend()",
+			"(*SVG).Gtransform(s string)/.Gend()",
+			"(*SVG).Gid(id string)/.Gend()",
+			"(*SVG).ClipPath(s ...string)/.ClipEnd()",
+			"(*SVG).Def()/.DefEnd()",
+			"(*SVG).Marker()/.MarkerEnd()",
+			"(*SVG).Pattern()/.PatternEnd()",
+			"(*SVG).Desc(s string)",
+			"(*SVG).Title(s string)",
+			"(*SVG).Script(type, data ...string)",
+			"(*SVG).Mask(id string, x,y,w,h float64, style ...string)/MaskEnd()",
+			"(*SVG).Link(href string, title string)/LinkEnd()",
+			"(*SVG).Use(x float64, y float64, link string, style ...string)",
 		}
 		metadesc = []string{
 			"specify destination",
@@ -449,35 +449,35 @@ func defobjects(w, h float64) {
 	canvas.LinearGradient("linear", 0, 0, 100, 0, ga)
 	canvas.RadialGradient("radial", 0, 0, 100, 50, 50, ga)
 	canvas.Path("M 0,0 A62,62 0 0 1 250,0", `id="tpath"`)
-	defsquare("square", h, "Square(x, y, w float64, style ...string)")
-	defrect("rect", w, h, "Rect(x, y, w, h float64, style ...string)")
-	defcrect("crect", w, h, "CenterRect(x, y, w, h float64, style ...string)")
-	defroundrect("roundrect", w, h, 25, 25, "Roundrect(x, y, w, h, rx, ry float64, style ...string)")
-	defpolygon("polygon", w, h, "Polygon(x, y []float64, style ...string)")
-	defcircle("circle", h, h2, "Circle(x, y, r float64, style ...string)")
-	defellipse("ellipse", h, h2, "Ellipse(x, y, rx, ry float64, style ...string)")
-	defline("line", w, h, "Line(x1, y1, x2, y2 float64, style ...string)")
-	defpolyline("polyline", w, h, "Polyline(x, y []float64, style ...string)")
-	defarc("arc", h, h2, "Arc(sx, sy, ax, ay, r float64, lflag, sflag bool, ex, ey float64, style ...string)")
-	defpath("path", h, h2, "Path(s string, style ...string)")
-	defqbez("qbez", h, h2, h, "Qbez(sx, sy, cx, cy, ex, ey float64, style ...string)")
-	defbez("bezier", h, h2, h, "Bezier(sx, sy, cx, cy, px, py, ex, ey float64, style ...string)")
-	defimage("image", 128, 128, "gophercolor128x128.png", "Image(x, y float64, w, h int,  path string, style ...string)")
-	deflg("lgrad", w, h, "LinearGradient(s string, x1, y1, x2, y2 uint8, oc []Offcolor)")
-	defrg("rgrad", w, h, "RadialGradient(s string, cx, cy, r, fx, fy uint8, oc []Offcolor)")
-	deftrans("trans", w, h, "Translate(x, y float64)")
-	defgrid("grid", w, h, "Grid(x, y, w, h, n float64, style ...string)")
-	deftext("text", w, h, "hello, this is SVG", "Text(x, y float64, s string, style ...string)")
-	defscale("scale", w, h, 0.5, "Scale(n float64)")
-	defscaleXY("scalexy", w, h, 0.5, 0.75, "ScaleXY(x, y float64)")
-	defskewX("skewx", w, h, 30, "SkewX(a float64)")
-	defskewY("skewy", w, h, 10, "SkewY(a float64)")
-	defskewXY("skewxy", w, h, 10, 10, "SkewXY(x, y float64)")
-	defrotate("rotate", w, h, 30, "Rotate(r float64)")
-	deftextpath("textpath", "#tpath", tpathstring, w, h, "Textpath(s, pathid string, style ...string)")
-	defmeta("meta", w*2, metatext, metadesc, "Textlines(x, y float64, s []string, size, spacing float64, fill, align string)")
-	defrgb("rgb", w, h, 44, 77, 232, 1.0, "RGB(r, g, b int)")
-	defrgb("rgba", w, h, 44, 77, 232, 0.33, "RGBA(r, g, b int, opacity float64)")
+	defsquare("square", h, "(*SVG).Square(x, y, w float64, style ...string)")
+	defrect("rect", w, h, "(*SVG).Rect(x, y, w, h float64, style ...string)")
+	defcrect("crect", w, h, "(*SVG).CenterRect(x, y, w, h float64, style ...string)")
+	defroundrect("roundrect", w, h, 25, 25, "(*SVG).Roundrect(x, y, w, h, rx, ry float64, style ...string)")
+	defpolygon("polygon", w, h, "(*SVG).Polygon(x, y []float64, style ...string)")
+	defcircle("circle", h, h2, "(*SVG).Circle(x, y, r float64, style ...string)")
+	defellipse("ellipse", h, h2, "(*SVG).Ellipse(x, y, rx, ry float64, style ...string)")
+	defline("line", w, h, "(*SVG).Line(x1, y1, x2, y2 float64, style ...string)")
+	defpolyline("polyline", w, h, "(*SVG).Polyline(x, y []float64, style ...string)")
+	defarc("arc", h, h2, "(*SVG).Arc(sx, sy, ax, ay, r float64, lflag, sflag bool, ex, ey float64, style ...string)")
+	defpath("path", h, h2, "(*SVG).Path(s string, style ...string)")
+	defqbez("qbez", h, h2, h, "(*SVG).Qbez(sx, sy, cx, cy, ex, ey float64, style ...string)")
+	defbez("bezier", h, h2, h, "(*SVG).Bezier(sx, sy, cx, cy, px, py, ex, ey float64, style ...string)")
+	defimage("image", 128, 128, "gophercolor128x128.png", "(*SVG).Image(x, y float64, w, h int,  path string, style ...string)")
+	deflg("lgrad", w, h, "(*SVG).LinearGradient(s string, x1, y1, x2, y2 uint8, oc []Offcolor)")
+	defrg("rgrad", w, h, "(*SVG).RadialGradient(s string, cx, cy, r, fx, fy uint8, oc []Offcolor)")
+	deftrans("trans", w, h, "(*SVG).Translate(x, y float64)")
+	defgrid("grid", w, h, "(*SVG).Grid(x, y, w, h, n float64, style ...string)")
+	deftext("text", w, h, "hello, this is SVG", "(*SVG).Text(x, y float64, s string, style ...string)")
+	defscale("scale", w, h, 0.5, "(*SVG).Scale(n float64)")
+	defscaleXY("scalexy", w, h, 0.5, 0.75, "(*SVG).ScaleXY(x, y float64)")
+	defskewX("skewx", w, h, 30, "(*SVG).SkewX(a float64)")
+	defskewY("skewy", w, h, 10, "(*SVG).SkewY(a float64)")
+	defskewXY("skewxy", w, h, 10, 10, "(*SVG).SkewXY(x, y float64)")
+	defrotate("rotate", w, h, 30, "(*SVG).Rotate(r float64)")
+	deftextpath("textpath", "#tpath", tpathstring, w, h, "(*SVG).Textpath(s, pathid string, style ...string)")
+	defmeta("meta", w*2, metatext, metadesc, "(*SVG).Textlines(x, y float64, s []string, size, spacing float64, fill, align string)")
+	defrgb("rgb", w, h, 230, 200, 210, 1.0, "(*SVG).RGB(r, g, b int)")
+	defrgb("rgba", w, h, 232, 200, 210, 0.33, "(*SVG).RGBA(r, g, b int, opacity float64)")
 	canvas.DefEnd()
 }
 
@@ -528,9 +528,9 @@ func main() {
 	canvas.Title("SVG Go Library Description")
 	canvas.Rect(0, 0, width, height, "fill:white;stroke:black;stroke-width:2")
 	canvas.Gstyle(gtextstyle)
-	canvas.Link("http://zappem.net/pub/graphics/svgo", "SVGo Library")
-	canvas.Text(width/2, 150, "SVG Go Library", "font-size:125px")
-	canvas.Text(width/2, 200, "zappem.net/pub/graphics/svgo", "font-size:50px;fill:gray")
+	canvas.Link("http://zappem.net/pub/graphics/svgof", "svgof library")
+	canvas.Text(width/2, 150, "SVGof Go Library", "font-size:125px")
+	canvas.Text(width/2, 200, "zappem.net/pub/graphics/svgof", "font-size:50px;fill:gray")
 	canvas.LinkEnd()
 	placeobjects(400, 400, 700, 600, roworder)
 	canvas.Gend()
