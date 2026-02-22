@@ -82,7 +82,7 @@ a minimal program, to generate SVG to standard output.
 		width := 500.0
 		height := 500.0
 		canvas := svgof.New(os.Stdout)
-		canvas.Digits = 3
+		canvas.Decimals = 3
 		canvas.Start(width, height)
 		canvas.Circle(width/2, height/2, 100)
 		canvas.Text(width/2, height/2, "Hello, SVG", "text-anchor:middle;font-size:30px;fill:white")
