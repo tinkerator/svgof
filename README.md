@@ -23,6 +23,22 @@ The library generates SVG as defined by the Scalable Vector Graphics
 1.1 Specification (<http://www.w3.org/TR/SVG11/>).  Output goes to the
 specified io.Writer, operation occur with Go's float64 type.
 
+### Examples:
+
+- `$ go run examples/svgdef.go`
+  - This regenerates the `svgdef.svg` file, which summarizes the features
+    of this `svgof` package.
+- `$ go run examples/drl2svg.go --drl examples/test.drl`
+  - This processes the sample `.drl` file, which is a drill file output
+    of [Kicad](https://www.kicad.org), to produce an SVG that
+    summarizes the way to use a CNC machine to drill holes like this
+    in a PCB.
+- `$ go run examples/outer.go --dest temp.svg`
+  - This explores how to _grow_ a line in a perpendicular way. It was
+    used to debug the [polygon.(*Shapes).Inflate()](https://pkg.go.dev/zappem.net/pub/math/polygon#Shapes.Inflate) function.
+  - The generated `temp.svg` file visually represents the strategy
+    used by that function.
+
 ## Supported SVG elements and functions ##
 
 ### Shapes, lines, text
@@ -119,17 +135,6 @@ Drawing in a web server: (http://localhost:2003/circle)
 You may view the SVG output with a browser that supports SVG (tested
 on Chrome, Opera, Firefox and Safari), or any other SVG user-agent
 such as Batik Squiggle.
-
-### Examples:
-
-- `$ go run examples/svgdef.go`
-  - This regenerates the `svgdef.svg` file, which summarizes the features
-    of this `svgof` package.
-- `$ go run examples/drl2svg.go --drl examples/test.drl`
-  - This processes the sample `.drl` file, which is a drill file output
-    of [Kicad](https://www.kicad.org), to produce an SVG that
-    summarizes the way to use a CNC machine to drill holes like this
-    in a PCB.
 
 ### SVGo Papers and presentations
 
@@ -432,7 +437,7 @@ is used to specify inputs and results for filter effects
  ![Line](http://farm5.static.flickr.com/4154/5188556080_0be19da0bc.jpg)
 
  
-	Polyline(x []int, y []int, s ...string)
+	Polyline(x []float64, y []float64, s ...string)
   draw a polygon using coordinates specified in x,y arrays.
   <http://www.w3.org/TR/SVG11/shapes.html#PolylineElement>
  
